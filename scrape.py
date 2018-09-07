@@ -44,9 +44,9 @@ partys = [x.text for x in congress_partys_page1]
 
 # grabbing img src from .gov
 # src prop of img element; ancestor div class = "member-image" 
-congress_imgs_page1 = browser.find_elements_by_xpath("//div[@class='member-image']/following-child::img/@src")
+congress_imgs_page1 = browser.find_elements_by_xpath("//img")
 # parsing returned objects into desired items ('list comprehension')
-imgs = [x.text for x in congress_imgs_page1]
+imgs = [x.get_attribute('src') for x in congress_imgs_page1]
 
 
 # display congresspersons in terminal
